@@ -7,6 +7,7 @@ import os
 import DetectChars
 import DetectPlates
 import PossiblePlate
+import CannyWebcam as webCapture
 
 # module level variables ##########################################################################
 SCALAR_BLACK = (0.0, 0.0, 0.0)
@@ -27,7 +28,7 @@ def main():
         return                                                          # and exit program
     # end if
 
-    imgOriginalScene  = cv2.imread("1.png")               # open image
+    imgOriginalScene  = webCapture()        # open image
 
     if imgOriginalScene is None:                            # if image was not read successfully
         print "\nerror: image not read from file \n\n"      # print error message to std out
