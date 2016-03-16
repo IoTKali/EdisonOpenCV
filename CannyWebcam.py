@@ -5,9 +5,9 @@ import numpy as np
 import os
 
 ###################################################################################################
-def webCapture():
+def main():
 
-    capWebcam = cv2.VideoCapture(0)         # declare a VideoCapture object and associate to webcam, 0 => use 1st webcam
+    capWebcam = cv2.VideoCapture(1)         # declare a VideoCapture object and associate to webcam, 0 => use 1st webcam
 
     if capWebcam.isOpened() == False:               # check if VideoCapture object was associated to webcam successfully
         print "error: capWebcam not accessed successfully\n\n"      # if not, print error message to std out
@@ -37,8 +37,8 @@ def webCapture():
 
     cv2.destroyAllWindows()                 # remove windows from memory
 
-    return capWebcam
+    #return capWebcam
 
 ###################################################################################################
-#if __name__ == "__main__":
- #   main()
+if __name__ == "__main__":
+    main()
