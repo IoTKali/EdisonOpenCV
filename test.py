@@ -18,7 +18,7 @@ SCALAR_RED = (0.0, 0.0, 255.0)
 showSteps = False
 def img():
     
-    capWebcam = cv2.VideoCapture(1)         # declare a VideoCapture object and associate to webcam, 0 => use 1st webcam
+    capWebcam = cv2.VideoCapture(0)         # declare a VideoCapture object and associate to webcam, 0 => use 1st webcam
 
     if capWebcam.isOpened() == False:               # check if VideoCapture object was associated to webcam successfully
         print "error: capWebcam not accessed successfully\n\n"      # if not, print error message to std out
@@ -89,22 +89,22 @@ def main():
                 # suppose the plate with the most recognized chars (the first plate in sorted by string length descending order) is the actual plate
         licPlate = listOfPossiblePlates[0]
 
-        cv2.imshow("imgPlate", licPlate.imgPlate)           # show crop of plate and threshold of plate
-        cv2.imshow("imgThresh", licPlate.imgThresh)
+#        cv2.imshow("imgPlate", licPlate.imgPlate)           # show crop of plate and threshold of plate
+ #       cv2.imshow("imgThresh", licPlate.imgThresh)
 
         if len(licPlate.strChars) == 0:                     # if no chars were found in the plate
             print "\nno characters were detected\n\n"       # show message
             return                                          # and exit program
         # end if
 
-        drawRedRectangleAroundPlate(imgOriginalScene, licPlate)             # draw red rectangle around plate
+#        drawRedRectangleAroundPlate(imgOriginalScene, licPlate)             # draw red rectangle around plate
 
         print "\nlicense plate read from image = " + licPlate.strChars + "\n"       # write license plate text to std out
         print "----------------------------------------"
 
         writeLicensePlateCharsOnImage(imgOriginalScene, licPlate)           # write license plate text on the image
 
-        cv2.imshow("imgOriginalScene", imgOriginalScene)                # re-show scene image
+#        cv2.imshow("imgOriginalScene", imgOriginalScene)                # re-show scene image
 
         cv2.imwrite("imgOriginalScene.png", imgOriginalScene)           # write image out to file
 

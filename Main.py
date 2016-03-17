@@ -1,5 +1,9 @@
 # Main.py
 
+
+
+
+import cv2.cv as cv
 import cv2
 import numpy as np
 import os
@@ -18,7 +22,17 @@ SCALAR_RED = (0.0, 0.0, 255.0)
 showSteps = False
 
 ###################################################################################################
+def capturePlate():
+	
+    capture = cv.CaptureFromCAM(0)
+    img = cv.QueryFrame(capture)
+    cv.SaveImage("plate.png", img)
+ 
 def main():
+	
+
+
+    capturePlate()
 
     blnKNNTrainingSuccessful = DetectChars.loadKNNDataAndTrainKNN()         # attempt KNN training
 
@@ -27,7 +41,7 @@ def main():
         return                                                          # and exit program
     # end if
 
-    imgOriginalScene  = cv2.imread("10.png")               # open image
+    imgOriginalScene  = cv2.imread("plate.png")               # open image
 
     if imgOriginalScene is None:                            # if image was not read successfully
         print "\nerror: image not read from file \n\n"      # print error message to std out
@@ -74,7 +88,7 @@ def main():
     # end if else
 
     cv2.waitKey(0)					# hold windows open until user presses a key
-
+    os.remove("plate.png")
     return
 # end main
 
