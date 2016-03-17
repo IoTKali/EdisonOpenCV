@@ -27,7 +27,7 @@ def main():
         return                                                          # and exit program
     # end if
 
-    imgOriginalScene  = cv2.imread("5.png")               # open image
+    imgOriginalScene  = cv2.imread("10.png")               # open image
 
     if imgOriginalScene is None:                            # if image was not read successfully
         print "\nerror: image not read from file \n\n"      # print error message to std out
@@ -39,7 +39,7 @@ def main():
 
     listOfPossiblePlates = DetectChars.detectCharsInPlates(listOfPossiblePlates)        # detect chars in plates
 
-    cv2.imshow("imgOriginalScene", imgOriginalScene)            # show scene image
+    #cv2.imshow("imgOriginalScene", imgOriginalScene)            # show scene image
 
     if len(listOfPossiblePlates) == 0:                          # if no plates were found
         print "\nno license plates were detected\n"             # inform user no plates were found
@@ -52,22 +52,22 @@ def main():
                 # suppose the plate with the most recognized chars (the first plate in sorted by string length descending order) is the actual plate
         licPlate = listOfPossiblePlates[0]
 
-        cv2.imshow("imgPlate", licPlate.imgPlate)           # show crop of plate and threshold of plate
-        cv2.imshow("imgThresh", licPlate.imgThresh)
+       # cv2.imshow("imgPlate", licPlate.imgPlate)           # show crop of plate and threshold of plate
+       # cv2.imshow("imgThresh", licPlate.imgThresh)
 
         if len(licPlate.strChars) == 0:                     # if no chars were found in the plate
             print "\nno characters were detected\n\n"       # show message
             return                                          # and exit program
         # end if
 
-        drawRedRectangleAroundPlate(imgOriginalScene, licPlate)             # draw red rectangle around plate
+        #drawRedRectangleAroundPlate(imgOriginalScene, licPlate)             # draw red rectangle around plate
 
         print "\nlicense plate read from image = " + licPlate.strChars + "\n"       # write license plate text to std out
         print "----------------------------------------"
 
         writeLicensePlateCharsOnImage(imgOriginalScene, licPlate)           # write license plate text on the image
 
-        cv2.imshow("imgOriginalScene", imgOriginalScene)                # re-show scene image
+       #cv2.imshow("imgOriginalScene", imgOriginalScene)                # re-show scene image
 
         cv2.imwrite("imgOriginalScene.png", imgOriginalScene)           # write image out to file
 

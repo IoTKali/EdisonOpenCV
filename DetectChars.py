@@ -1,6 +1,6 @@
 # DetectChars.py
-
 import cv2
+#import cv2.cv as cv2
 import numpy as np
 import math
 import random
@@ -11,7 +11,7 @@ import PossibleChar
 
 # module level variables ##########################################################################
 
-kNearest = cv2.ml.KNearest_create()
+kNearest = cv2.KNearest()
 
         # constants for checkIfPossibleChar, this checks one possible char only (does not compare to another char)
 MIN_PIXEL_WIDTH = 2
@@ -64,9 +64,9 @@ def loadKNNDataAndTrainKNN():
 
     npaClassifications = npaClassifications.reshape((npaClassifications.size, 1))       # reshape numpy array to 1d, necessary to pass to call to train
 
-    kNearest.setDefaultK(1)                                                             # set default K to 1
+ #   kNearest.setDefaultK(1)                                                             # set default K to 1
 
-    kNearest.train(npaFlattenedImages, cv2.ml.ROW_SAMPLE, npaClassifications)           # train KNN object
+    kNearest.train(npaFlattenedImages, npaClassifications)           # train KNN object
 
     return True                             # if we got here training was successful so return true
 # end function
@@ -233,7 +233,8 @@ def findPossibleCharsInPlate(imgGrayscale, imgThresh):
     imgThreshCopy = imgThresh.copy()
 
             # find all contours in plate
-    imgContours, contours, npaHierarchy = cv2.findContours(imgThreshCopy, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
+ #   imgContours,
+    contours, npaHierarchy = cv2.findContours(imgThreshCopy, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
 
     for contour in contours:                        # for each contour
         possibleChar = PossibleChar.PossibleChar(contour)
@@ -419,7 +420,7 @@ def recognizeCharsInPlate(imgThresh, listOfMatchingChars):
 
         npaROIResized = np.float32(npaROIResized)               # convert from 1d numpy array of ints to 1d numpy array of floats
 
-        retval, npaResults, neigh_resp, dists = kNearest.findNearest(npaROIResized, k = 1)              # finally we can call findNearest !!!
+        retval, npaResults, neigh_resp, dists = kNearest.find_nearest(npaROIResized, k = 1)              # finally we can call findNearest !!!
 
         strCurrentChar = str(chr(int(npaResults[0][0])))            # get character from results
 
