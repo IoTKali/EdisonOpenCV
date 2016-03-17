@@ -8,6 +8,7 @@ import cv2
 import numpy as np
 import os
 
+import client as mqtt
 import DetectChars
 import DetectPlates
 import PossiblePlate
