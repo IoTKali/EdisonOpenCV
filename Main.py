@@ -80,15 +80,16 @@ def main():
         print "\nlicense plate read from image = " + licPlate.strChars + "\n"       # write license plate text to std out
         print "----------------------------------------"
 
+        #send number of plates via mqtt protocol to the server
         client = mqtt.Client("camera_1")
         client.connect("10.43.28.194",1883,60)
         client.publish("entry/zone_1",licPlate.strChars)
 
-        writeLicensePlateCharsOnImage(imgOriginalScene, licPlate)           # write license plate text on the image
+        #writeLicensePlateCharsOnImage(imgOriginalScene, licPlate)           # write license plate text on the image
 
        #cv2.imshow("imgOriginalScene", imgOriginalScene)                # re-show scene image
 
-        cv2.imwrite("imgOriginalScene.png", imgOriginalScene)           # write image out to file
+       #cv2.imwrite("imgOriginalScene.png", imgOriginalScene)           # write image out to file
 
     # end if else
 
