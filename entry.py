@@ -1,18 +1,9 @@
 import time
 import sensors
 import pyupm_grove as grove
-
 from Main import main
 from motorx import Fservo
-
 from sensors import checkButtonPulse
-
-myButton = grove.GroveButton(2)
-
-
-while True:
-   if checkButtonPulse(myButton):
-      break
 
 gServo = servo.ES08A(5)
 buttonInput = grove.GroveButton(3)
