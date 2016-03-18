@@ -8,10 +8,9 @@ from motorx import Fservo
 myButton = grove.GroveButton(2)
 
 
-    while True:
-        if checkButtonPulse(myButton):
-            
-            break
+while True:
+   if checkButtonPulse(myButton):
+      break
 
 gServo = servo.ES08A(5)
 buttonInput = grove.GroveButton(3)
@@ -38,6 +37,7 @@ while(True):
         avSpaces +=1
         mqttc.publish("zone_1", "zone_2")
         sensors.displayUpdate(display, avSpaces, regSpaces)
+        
     if __name__ == "__main__":
         if sensors.buttonPulse(buttonInput):
             main()
