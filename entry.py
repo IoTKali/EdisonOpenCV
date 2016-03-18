@@ -2,9 +2,9 @@
 import time
 import pyupm_grove as grove
 
-#from Main import main
+from Main import main
 
-#from motorx import servo
+from motorx import servo
 
 
 
