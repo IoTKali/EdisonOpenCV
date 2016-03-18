@@ -23,7 +23,7 @@ if __name__ == "__main__":
         if checkButtonPulse(myButton):
             main()
             
-            time.delay(3)
+            time.sleep(3)
 
             servo()
             break
