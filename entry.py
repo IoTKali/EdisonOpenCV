@@ -5,7 +5,7 @@ import pyupm_grove as grove
 from Main import main
 from motorx import Fservo
 
-from sensors import checkButton
+from sensors import checkButtonPulse
 
 myButton = grove.GroveButton(2)
 
