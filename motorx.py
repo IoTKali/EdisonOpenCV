@@ -10,7 +10,7 @@ def Fservo():
         # Set the servo arm to 0 degrees
     gServo.setAngle(90)
     print 'Set angle to 90'
-    time.sleep(15)
+    time.sleep(5)
 
         # Set the servo arm to 90 degrees
     gServo.setAngle(0)
