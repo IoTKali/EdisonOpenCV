@@ -16,7 +16,7 @@ def checkButtonPulse(button):
     return False
 
 
-myButton = grove.GroveButton(5)
+myButton = grove.GroveButton(2)
 
 if __name__ == "__main__":
     while True:
