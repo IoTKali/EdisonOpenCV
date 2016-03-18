@@ -152,9 +152,9 @@ def writeLicensePlateCharsOnImage(imgOriginalScene, licPlate):
 ###################################################################################################
 
 def checkButtonPulse(button):
-    if button.value() != 0:
+    if (button.value() != 0):
         while True:
-            button.value == 0:
+            if (button.value() == 0):
                 return True
     return False
 
