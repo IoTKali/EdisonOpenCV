@@ -21,9 +21,9 @@ myButton = grove.GroveButton(5)
 if __name__ == "__main__":
     while True:
         if checkButtonPulse(myButton):
-            Main.main()
+            main()
             
             time.delay(3)
 
-            motorx.servo()
+            servo()
             break
