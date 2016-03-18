@@ -154,13 +154,13 @@ def writeLicensePlateCharsOnImage(imgOriginalScene, licPlate):
 def checkButtonPulse(button):
     if (button.value() != 0):
         while True:
-            if (button.value() == 0):
+            if button.value() == 0:
                 return True
     return False
 
 
 #if __name__ == "__main__":
-myButton = grove.groveButton(5)
+myButton = grove.GroveButton(5)
 while True:
     if checkButtonPulse(myButton):
         main()
