@@ -2,7 +2,7 @@
 
 
 
-
+import pyupm_grove as grove
 import cv2.cv as cv
 import cv2
 import numpy as np
@@ -150,8 +150,21 @@ def writeLicensePlateCharsOnImage(imgOriginalScene, licPlate):
 # end function
 
 ###################################################################################################
-if __name__ == "__main__":
-    main()
+
+def checkButtonPulse(button):
+    if button.value() != 0:
+        while True:
+            button.value == 0:
+                return True
+    return False
+
+
+#if __name__ == "__main__":
+myButton = grove.groveButton(5)
+while True:
+    if checkButtonPulse(myButton):
+        main()
+        break
 
 
 
