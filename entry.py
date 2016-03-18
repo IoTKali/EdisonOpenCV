@@ -1,9 +1,10 @@
 
 import time
 import pyupm_grove as grove
-from Main import main
 
-from motorx import servo
+#from Main import main
+
+#from motorx import servo
 
 
 
@@ -18,9 +19,9 @@ def checkButtonPulse(button):
 myButton = grove.GroveButton(5)
 while True:
     if checkButtonPulse(myButton):
-        main()
+        Main.main()
         
         time.delay(3)
 
-        servo()
+        motorx.servo()
         break
