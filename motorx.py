@@ -2,7 +2,7 @@ import time
 import pyupm_servo as servo 
 
 
-def servo():
+def Fservo():
     # Create the servo object using D5
     gServo = servo.ES08A(5)
 
@@ -28,4 +28,4 @@ def servo():
     del gServo 
 
 
-servo()
+

@@ -4,7 +4,7 @@ import pyupm_grove as grove
 
 from Main import main
 
-from motorx import servo
+from motorx import Fservo
 
 
 
@@ -25,5 +25,5 @@ if __name__ == "__main__":
             
             time.sleep(3)
 
-            servo()
+            Fservo()
             break
