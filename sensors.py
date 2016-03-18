@@ -42,3 +42,8 @@ def displayUpdate(display, avSpaces, regSpaces):
             display.write("No available")
             display.setCursor(1, 0)
             display.write("places")
+
+def spinServo(servo):
+    servo.setAngle(90)
+    time.sleep(3)
+    servo.setAngle(0)

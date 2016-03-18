@@ -1,11 +1,12 @@
 import time
 import sensors
 import pyupm_grove as grove
+import pyupm_servo as servo 
 from Main import main
-from motorx import Fservo
 from sensors import checkButtonPulse
 
-gServo = servo.ES08A(5)
+servoInput = servo.ES08A(6)
+servoOutput = servo.ES08A(7)
 buttonInput = grove.GroveButton(3)
 buttonOutput = grove.GroveButton(2)
 touch = ttp223.TTP223(8)
@@ -35,7 +36,7 @@ while(True):
         if sensors.buttonPulse(buttonInput):
             main()
             time.sleep(3)
-            Fservo()
+            sensors.spinServo(s
             avSpaces -= 1
             sensors.displayUpdate(display, avSpaces, regSpaces)
     if sensors.buttonPulse(buttonOutput):
