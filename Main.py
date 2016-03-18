@@ -80,8 +80,8 @@ def main():
         print "\nlicense plate read from image = " + licPlate.strChars + "\n"       # write license plate text to std out
         print "----------------------------------------"
 
-        client = mqtt.Client()
-        mqttc.connect("http://10.43.28.194",1883,60)
+        client = mqtt.Client("camera_1")
+        client.connect("10.43.28.194",1883,60)
         cliente.publish("entry/zone_1",licPlate.strChars)
 
         writeLicensePlateCharsOnImage(imgOriginalScene, licPlate)           # write license plate text on the image
