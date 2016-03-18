@@ -17,11 +17,13 @@ def checkButtonPulse(button):
 
 
 myButton = grove.GroveButton(5)
-while True:
-    if checkButtonPulse(myButton):
-        Main.main()
-        
-        time.delay(3)
 
-        motorx.servo()
-        break
+if __name__ == "__main__":
+    while True:
+        if checkButtonPulse(myButton):
+            Main.main()
+            
+            time.delay(3)
+
+            motorx.servo()
+            break

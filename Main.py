@@ -154,9 +154,6 @@ def writeLicensePlateCharsOnImage(imgOriginalScene, licPlate):
 
 
 
-if __name__ == "__main__":
-
-
 
 
 
