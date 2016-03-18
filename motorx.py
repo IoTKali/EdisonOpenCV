@@ -4,7 +4,7 @@ import pyupm_servo as servo
 
 def servo():
     # Create the servo object using D5
-    gServo = servo.ES08A(5)
+    gServo = servo.ES08A(6)
 
     for i in range(0,10): 
         # Set the servo arm to 0 degrees
